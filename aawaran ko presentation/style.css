@@ -1,0 +1,306 @@
+/* ============================================
+   My Personal Website - style.css.css
+   ============================================ */
+
+/* CSS Variables - change these to re-theme the whole site */
+:root {
+  --bg:        #06222e;   /* deep ocean background */
+  --bg-soft:   #0b3444;   /* card background */
+  --accent:    #2ec4b6;   /* aqua accent */
+  --accent-2:  #ff9f1c;   /* warm orange accent */
+  --text:      #eaf6f6;   /* main text */
+  --muted:     #9fc3c9;   /* secondary text */
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;   /* smooth scrolling for nav links */
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ============ Navigation bar ============ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: rgba(6, 34, 46, 0.9);
+  border-bottom: 2px solid var(--accent);
+  position: sticky;          /* navbar stays on top while scrolling */
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Special "Contact Me" button in the nav */
+.contact-btn {
+  background: var(--accent);
+  color: #06222e !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.contact-btn:hover {
+  background: var(--accent-2);
+}
+
+/* ============ Hero section ============ */
+.hero {
+  text-align: center;
+  padding: 110px 8% 90px;
+  background: linear-gradient(180deg, #06222e 0%, #0b3444 100%);
+}
+
+.hero-kicker {
+  color: var(--accent-2);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.site-title {
+  font-size: 3rem;
+  margin: 8px 0 24px;
+}
+
+.my-name {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero-desc {
+  max-width: 560px;
+  margin: 20px auto 32px;
+  color: var(--muted);
+}
+
+.hero-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #06222e;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 30px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.hero-btn:hover {
+  background: var(--accent-2);
+  transform: translateY(-3px);   /* button lifts on hover */
+}
+
+/* ============ Generic section ============ */
+.section {
+  padding: 80px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.section-title::after {   /* small underline under each title */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+/* ============ Skills grid ============ */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.skill-card {
+  background: var(--bg-soft);
+  border: 1px solid rgba(46, 196, 182, 0.25);
+  border-radius: 14px;
+  padding: 28px 22px;
+  width: 240px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+.skill-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.skill-card h3 {
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ============ Hobby / fish cards ============ */
+.hobby {
+  background: var(--bg-soft);
+}
+
+.fish-card {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  background: rgba(6, 34, 46, 0.6);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 32px auto;
+  max-width: 900px;
+}
+
+.fish-card.reverse {
+  flex-direction: row-reverse;   /* second card flips the layout */
+}
+
+.fish-card img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--accent);
+  transition: transform 0.3s;
+}
+
+.fish-card img:hover {
+  transform: scale(1.03);
+}
+
+.fish-text h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.fish-text p {
+  color: var(--muted);
+}
+
+/* ============ Contact cards ============ */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.contact-card {
+  display: block;
+  background: var(--bg-soft);
+  border: 1px solid rgba(46, 196, 182, 0.25);
+  border-radius: 14px;
+  padding: 28px 36px;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-2);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: var(--accent-2);
+}
+
+.contact-card h3 {
+  margin: 10px 0 4px;
+}
+
+.contact-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ============ Footer ============ */
+.footer {
+  text-align: center;
+  padding: 24px;
+  background: #041820;
+  color: var(--muted);
+  border-top: 2px solid var(--accent);
+}
+
+/* ============ Responsive: stack columns on phones ============ */
+@media (max-width: 700px) {
+  .fish-card,
+  .fish-card.reverse {
+    flex-direction: column;
+  }
+  .fish-card img {
+    width: 100%;
+    height: auto;
+  }
+  .site-title {
+    font-size: 2.2rem;
+  }
+}
